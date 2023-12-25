@@ -3,29 +3,26 @@
 ## Start and Config
 - В корне необходимо скопировать файл `example.env` и вставить в ту же папку с именем `.env`.
 - Указать корректные токены в соответствующие переменные.  
-`DEVMAN_TOKEN` - токен пользователя API в Девман  
-`TG_BOT_TOKEN`- токен ТГ бота  
-`TG_CHAT_ID` - ID чата в личных сообщениях, в который бот будет отправлять оповещения  
+`MAIL_SENDER_LOGIN` - Логин почты с которой будут отправлены сообщения  
+`TMAIL_SENDER_PASSWORD`- Пароль почты отправителя  
 
 ## Features
-- Получить имя пользователя:
-```
-updates = bot.get_updates()
-firts_name = updates[-1].message.from_user.first_name
-```
-- Используй файл `config/config.json` для настройки версии апи, задержек и текста отправляемых сообщений.
+- Используй файл `config/config.json` для настройки реферральной ссылки, заголовков сообщения, списка клиентских данных и параметров SMPT-сервера.
 
 ## Config example
 ```
 {
   "urls":
   {
-    "user_reviews": "https://dvmn.org/api/long_polling/",
+    "ref_link": "https://dvmn.org/referrals/cHqg6YGb5iTvYMcW1rZJLctziAfOhbwepKOOHwwM/"
   },
-  "timeout": 120,
-  "sleep": 30,
-  "message": "Mentor has checked your work!\nTheme: {title}\nLink: {url}\n\n{review}",
-  "review_messages": ["Unfortunately there are errors in the work :(",
-    "Everything is fine! You can proceed to the next lesson :)"],
+  "mail_headers": {"sender_name": "Евгений", "subject": "Приглашение"},
+  "clients": [
+      {"name": "Александр", "mail": "test@mail.ru"}
+  ],
+  "smtp":
+  [
+      {"url": "smtp.yandex.ru", "port": 465}
+  ]
 }
 ```

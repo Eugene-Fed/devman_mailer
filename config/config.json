@@ -1,11 +1,14 @@
 {
   "urls":
   {
-    "user_reviews": "https://dvmn.org/api/long_polling/"
+    "ref_link": "https://dvmn.org/referrals/cHqg6YGb5iTvYMcW1rZJLctziAfOhbwepKOOHwwM/"
   },
-  "timeout": 120,
-  "sleep": 30,
-  "message": "Mentor has checked your work!\nTheme: {title}\nLink: {url}\n\n{review}",
-  "review_messages": ["Unfortunately there are errors in the work =(",
-    "Everything is fine! You can proceed to the next lesson =)"]
+  "mail_headers": {"sender_name": "Евгений", "subject": "Приглашение"},
+  "clients": [
+      {"name": "Александр", "mail": "test@mail.ru"}
+  ],
+  "smtp":
+  [
+      {"url": "smtp.yandex.ru", "port": 465}
+  ]
 }
